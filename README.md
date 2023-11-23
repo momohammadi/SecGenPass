@@ -6,13 +6,39 @@ As individuals engaged in development environments and infrastructures daily, we
 
 This script is straightforward, fast, and also suitable for use in automation environments.
 ## Usage
-Python makes this script versatile, enabling its use across various environments such as Windows, Mac, Linux, or Docker.
+This script can be seamlessly integrated into your bash alias, ensuring convenient and swift access for daily usage. Additionally, it's adaptable for embedding within your code, providing a reliable method to generate random passwords within any script or program.
 
-### Prerequisites
+Feel empowered to adjust the command-line arguments or tailor the script to suit your specific requirements!
 
+
+### Docker Usage
+Generate passwords using a Docker image based on a web server and retrieve them via curl, customizing the output with query parameters.
+
+1. Run Docker Container with a custom port
+
+    ```bash
+    hostPort=8080
+    docker run -d -p $hostPort:80 momohammadi/secgenpass --name secgenpass
+    ```
+2. Get a password with the following command:
+
+    this will generate password with default arguments
+
+    ```bash
+    # default setting
+    curl localhost:$hostPort
+    ```
+
+    This will generate 5 passwords with lengths of 20 characters each, containing between 3 to 5 special characters.
+
+    ```bash
+    # customize output password 
+    curl -X Get localhost:$hostPort?n=5&s=3&m=5&l=20
+    ```
+
+### Direct Usage
+##### Prerequisites
 - Python 3.x
-
-### Instructions
 
 1. Clone the repository:
 
@@ -63,4 +89,3 @@ The script uses the following functions:
 
 The script utilizes the `random` and `string` modules in Python to generate random passwords based on the provided criteria. It employs a character set comprising lowercase and uppercase letters, digits, and user-defined special characters. The generated passwords meet the specified length and criteria regarding the number of special characters included.
 
-Feel free to modify the command-line arguments or further customize the script based on your requirements!
