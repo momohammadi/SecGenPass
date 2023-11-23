@@ -39,9 +39,15 @@ def generate_passwords(num_passwords: int) -> list:
     passwords = []
 
     while num_passwords > 0:
-        password = passgen(length, min_special_chars, max_special_chars, special_chars)
-        passwords.append(password)
-        num_passwords -= 1
+        # Check if the maximum special characters value is greater than or equal to the minimum value
+        if max_special_chars >= min_special_chars:
+            password = passgen(length, min_special_chars, max_special_chars, special_chars)
+            passwords.append(password)
+            num_passwords -= 1
+        else:
+            # Handle the case where max_special_chars < min_special_chars to avoid infinite loop
+            print(f"Error: The maximum number of special characters ({max_special_chars}) is less than the minimum ({min_special_chars})")
+            break
     return passwords
 
 # Generate and print passwords
