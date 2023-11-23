@@ -17,7 +17,7 @@ Python makes this script versatile, enabling its use across various environments
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/password-generator.git
+    git clone https://github.com/momohammadi/SecGenPass.git
     ```
 
 2. Navigate to the directory:
@@ -47,7 +47,7 @@ Python makes this script versatile, enabling its use across various environments
     **Example:**
 
     ```bash
-    python password_generator.py -n 5 -s 3 -m 5 -l 20
+    python SecGenPass.py -n 5 -s 3 -m 5 -l 20
     ```
 
     This will generate 5 passwords with lengths of 20 characters each, containing between 3 to 5 special characters.
